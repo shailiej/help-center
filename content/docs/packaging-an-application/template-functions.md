@@ -19,7 +19,7 @@ Replicated uses Go's [template engine](http://golang.org/pkg/text/template) to e
 {{repl if pipeline}} T1 {{repl else}} T0 {{repl end}}
 ```
 
-# Replicated Template Functions
+{{< linked_headline "Replicated Template Function" >}}
 
 {{< template_function name="ConfigOption" replicated="true" kubernetes="true" swarm="true" >}}
 ```go
@@ -349,18 +349,27 @@ For a clustered application this value will be different for each host.
 
 {{< template_function name="LDAPCopyAuthFrom" replicated="true" kubernetes="true" swarm="true" >}}
 ```go
-func LdapCopyAuthFrom(keyName string) string
+func LdapCopyAuthFrom(keyName string) interface{}
 ```
 Possible Options:
-`Hostname`
-`Port`
-`SearchUsername`
-`SearchPassword`
-`BaseDN`
-`UserSearchDN`
-`RestrictedGroupCNs`
-`FieldUsername`
-`LoginUsername`
+
+| Key | Type |
+| --- | ---- |
+| Hostname | string |
+| Port | string |
+| SearchUsername | string |
+| SearchPassword | string |
+| BaseDN | string |
+| UserSearchDNFirst | string |
+| UserSearchDNAll | string |
+| RestrictedGroupCNFirst | []string |
+| RestrictedGroupCNAll | []string |
+| FieldUsername | string |
+| LoginUsername | string |
+| AdvancedSearchBool | boolean |
+| UserQuery | string |
+| RestrictedGroupQuery | string |
+
 ```yaml
 env_vars:
 - name: LDAP_HOSTNAME
@@ -421,6 +430,16 @@ env_vars:
 - name: BROKEN_APART_A_B_C
   static_val: '{{repl Split "A,B,C" "," }}'
 ```
+
+Combining `Split` and `index`:
+Assuming the `github_url` param is set to `https://github.mycorp.internal:3131`, the following would set
+`GITHUB_HOSTNAME` to `github.mycorp.internal`.
+```yaml
+env_vars:
+- name: GITHUB_HOSTNAME
+  static_val: '{{repl index (Split (index (Split (ConfigOption "github_url") "/") 2) ":") 0}}'
+```
+
 
 {{< template_function name="ToLower" replicated="true" kubernetes="true" swarm="true" >}}
 ```go

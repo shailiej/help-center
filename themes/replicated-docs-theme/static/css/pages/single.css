@@ -39,6 +39,12 @@
     padding: 50px 0;
 }
 
+.page-content h1 {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 25px 0;
+}
+
 .page-content h2 {
     font-size: 20px;
     font-weight: 500;
@@ -274,6 +280,75 @@
 
 .header .tags li a {
     color: white;
+}
+
+.linked-headline {
+    position: relative;
+}
+
+.linked-headline:hover .anchor {
+    display: inline-block;
+    padding-left: 30px;
+    margin-left: -30px !important;
+}
+
+.linked-headline .anchor {
+    background-image: url("../../images/main_spritesheet.svg");
+    background-position: -98px -198px;
+    position: absolute;
+    height: 16px;
+    width: 19px;
+    top: 4px;
+    left: 0;
+    display: none;
+}
+
+.knowledgebase .sidebar-wrapper {
+    display: none;
+}
+
+.knowledgebase .page-content {
+    margin-left: 0;
+}
+
+.knowledgebase .kb-back-link {
+    margin-bottom: 20px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.knowledgebase .kb-back-link:hover {
+    text-decoration: none;
+}
+
+.knowledgebase .kb-back-link::after {
+    content: "";
+    position: absolute;
+    background-image: url(../../images/main_spritesheet.svg);
+    background-repeat: no-repeat;
+    background-size: initial;
+    background-position: -58px 0;
+    width: 7px;
+    height: 12px;
+    top: 3px;
+    left: -15px;
+    -webkit-transform: translateX(0) rotate(180deg);
+    -moz-transform: translateX(0) rotate(180deg);
+    transform: translateX(0) rotate(180deg);
+    -webkit-transition: transform .2s;
+    -moz-transition: transform .2s;
+    transition: transform .2s;
+}
+
+.knowledgebase .kb-back-link:hover::after {
+  -webkit-transform: translateX(-3px) rotate(180deg);
+  -moz-transform: translateX(-3px) rotate(180deg);
+  transform: translateX(-3px) rotate(180deg);
+}
+
+.badge .icon {
+    position: relative;
+    top: 4px;
 }
 
 @media screen and (min-width: 48em) {

@@ -47,12 +47,23 @@
   margin: 0 0 15px 0;
 }
 
+.aa-empty {
+  font-size: 12px;
+  padding: 10px 15px;
+  color: #9B9B9B;
+}
+
 .aa-suggestion {
   padding: 10px 15px;
   min-height: 45px;
   border-bottom: 1px solid rgba(155, 155, 155, .4);
   cursor: pointer;
 }
+
+.aa-suggestion.aa-cursor {
+  background: rgba(163, 211, 233, .5);
+}
+
 .aa-suggestion:last-child {
   border-bottom: none;
 }
