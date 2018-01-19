@@ -80,5 +80,6 @@ dismissing the warnings. Upon dismissing preflight warnings, an entry will be re
 
 {{% page_notes %}}
 - `min_disk_space` does not guarantee free space, it refers to the disk size mounted at the specified location.
-- The requested `docker_version` must be one of the versions Replicated supports.
-{{% /page_notes %}}
+- The requested `docker_version` must be one of the versions Replicated supports. Currently supported versions are - 
+  - Replicated Native - {{< docker_version_minimum >}} - {{< docker_version_default >}}
+  - Replicated Swarm - {{< swarm_docker_version_minimum >}} - {{< swarm_docker_version_default >}}{{% /page_notes %}}
